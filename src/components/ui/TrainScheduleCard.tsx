@@ -25,6 +25,7 @@ export default function TrainScheduleCard({
   departureStation,
   departureTime,
   route,
+  stationFrom,
 }: // stationCount,
 {
   trainNumber: string;
@@ -33,6 +34,7 @@ export default function TrainScheduleCard({
   departureStation: string;
   departureTime: string;
   route: string;
+  stationFrom: string;
   // stationCount: string;
 }) {
   const [routeTrain, setRouteTrain] = useState<RouteTrain[]>([]);
@@ -93,7 +95,7 @@ export default function TrainScheduleCard({
                 {trainName}
               </Badge>
               <p className="text-xs text-gray-600 mt-2 dark:text-white">
-                Tujuan stasiun{" "}
+                <span className="font-bold">{stationFrom}</span> -{" "}
                 <span className="font-bold">{departureStation}</span>
               </p>
             </div>

@@ -19,6 +19,7 @@ import { Slide, ToastContainer, toast } from "react-toastify";
 
 export default function Home() {
   const [step, setStep] = useState("selectStation"); // selectStation, selectRoute, displaySchedule
+  const [selectedStation, setSelectedStation] = useState("");
   const [schedule, setSchedule] = useState<ScheduleStation[]>([]);
   const [uniqueRoute, setUniqueRoute] = useState<ScheduleStation[]>([]);
   const [selectedRoute, setSelectedRoute] = useState("");
@@ -32,12 +33,14 @@ export default function Home() {
   const handleCariJadwalClick = (st: Station, jadwal: string) => {
     const [timeFrom, timeTo] = jadwal.split("-");
 
+    setSelectedStation(st.sta_name);
     fetchSchedule(st.sta_id, timeFrom, timeTo);
   };
 
   const handleOnClickBack = () => {
     if (step == "selectRoute") {
       setStep("selectStation");
+      setSelectedStation("");
     } else if (step == "displaySchedule") {
       setSelectedRoute("");
       setStep("selectRoute");
@@ -193,7 +196,7 @@ export default function Home() {
       </div>
 
       <div className={`my-4 ${step !== "displaySchedule" ? "hidden" : ""}`}>
-        <h1 className="font-bold text-center mb-1">{selectedRoute}</h1>
+        <h1 className="font-bold text-center mb-1">RUTE {selectedRoute}</h1>
         {schedule
           .filter((item) => item.route_name === selectedRoute)
           .map((sch) => (
@@ -204,6 +207,7 @@ export default function Home() {
               trainName={sch.ka_name}
               color={sch.color}
               departureTime={sch.time_est.slice(0, 5)}
+              stationFrom={selectedStation}
               route={selectedRoute}
             />
           ))}
