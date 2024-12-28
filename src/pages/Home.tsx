@@ -89,6 +89,7 @@ export default function Home() {
   useEffect(() => {
     toast.info("🦄 Unofficial-App! Click to contact me", {
       onClick(event) {
+        console.log(event);
         window.location.href = "https://github.com/ZumaAkbarID";
       },
       position: "bottom-right",
