@@ -1,12 +1,13 @@
 import axios from "axios";
 
-const apiUrl = await import.meta.env.VITE_API_URL;
-const apiToken = await import.meta.env.VITE_API_TOKEN;
+const apiUrl = import.meta.env.VITE_API_URL;
+const apiToken = import.meta.env.VITE_API_TOKEN;
 
 const api = axios.create({
   baseURL: apiUrl,
   headers: {
     "Content-Type": "application/json",
+    Authorization: `Bearer ${apiToken}`,
   },
 });
 
