@@ -6,7 +6,7 @@ import CekHarga from "../assets/icon/price.png";
 import Maps from "../assets/icon/map.png";
 import BannerHome from "../assets/banner/home.png";
 import Background from "@/components/ui/Background";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Station } from "@/dto/Station";
 import CariJadwalTimeCard from "@/components/ui/CariJadwalTimeCard";
 import TrainScheduleCard from "@/components/ui/TrainScheduleCard";
@@ -15,6 +15,7 @@ import { ChevronLeftCircle } from "lucide-react";
 import TrainRouteCard from "@/components/ui/TrainRouteCard";
 import api from "@/services/api";
 import { ScheduleStation } from "@/dto/ScheduleStation";
+import { Slide, ToastContainer, toast } from "react-toastify";
 
 export default function Home() {
   const [step, setStep] = useState("selectStation"); // selectStation, selectRoute, displaySchedule
@@ -85,10 +86,41 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    toast.info("🦄 Unofficial-App! Click to contact me", {
+      onClick(event) {
+        window.location.href = "https://github.com/ZumaAkbarID";
+      },
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Slide,
+    });
+  }, []);
+
   return (
     <>
       {/* BG */}
       <Background svg={Ellipse} />
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Slide}
+      />
 
       {/* title sama toggle */}
       <div className="flex justify-between mt-5">
@@ -170,7 +202,7 @@ export default function Home() {
               departureStation={sch.dest}
               trainName={sch.ka_name}
               color={sch.color}
-              departureTime={sch.dest_time.slice(0, 5)}
+              departureTime={sch.time_est.slice(0, 5)}
               route={selectedRoute}
             />
           ))}

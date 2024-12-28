@@ -103,7 +103,7 @@ export default function TrainScheduleCard({
             </div>
           </div>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-md max-h-screen overflow-y-auto">
+        <DialogContent className="sm:max-w-md max-h-svh overflow-y-auto">
           <DialogHeader>
             <DialogTitle>Rute Kereta {trainNumber}</DialogTitle>
             <div className="text-center">
