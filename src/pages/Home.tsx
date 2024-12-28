@@ -21,7 +21,7 @@ export default function Home() {
   const [schedule, setSchedule] = useState<ScheduleStation[]>([]);
   const [uniqueRoute, setUniqueRoute] = useState<ScheduleStation[]>([]);
   const [selectedRoute, setSelectedRoute] = useState("");
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleClick = (title: string) => {
