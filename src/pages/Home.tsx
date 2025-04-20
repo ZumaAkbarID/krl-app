@@ -17,6 +17,8 @@ import api from "@/services/api";
 import { ScheduleStation } from "@/dto/ScheduleStation";
 import { Slide, ToastContainer, toast } from "react-toastify";
 
+const APP_URL = import.meta.env.VITE_APP_URL;
+
 export default function Home() {
   const [step, setStep] = useState("selectStation"); // selectStation, selectRoute, displaySchedule
   const [selectedStation, setSelectedStation] = useState("");
@@ -26,8 +28,8 @@ export default function Home() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleClick = (title: string) => {
-    alert(`You clicked on ${title}`);
+  const handleClick = (path: string) => {
+    window.location.href = APP_URL + path;
   };
 
   const handleCariJadwalClick = (st: Station, jadwal: string) => {
@@ -160,21 +162,21 @@ export default function Home() {
             <MenuCard
               image={JadwalKereta}
               title="Jadwal KRL"
-              onClick={() => handleClick("Jadwal Kereta")}
+              onClick={() => handleClick("/")}
             />
           </div>
           <div>
             <MenuCard
               image={CekHarga}
               title="Harga Tiket"
-              onClick={() => handleClick("Harga Tiket")}
+              onClick={() => handleClick("/harga")}
             />
           </div>
           <div>
             <MenuCard
               image={Maps}
               title="Rute KRL"
-              onClick={() => handleClick("Rute Kereta")}
+              onClick={() => handleClick("/rute")}
             />
           </div>
         </div>
@@ -211,6 +213,10 @@ export default function Home() {
               route={selectedRoute}
             />
           ))}
+
+        <p className="text-xs text-muted-foreground mt-5 text-center">
+          Klik jadwal untuk melihat detail rute
+        </p>
       </div>
     </>
   );

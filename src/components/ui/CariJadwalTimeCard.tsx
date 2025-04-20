@@ -60,11 +60,11 @@ export default function CariJadwalTimeCard({
       value: `${currTime.toLocaleTimeString(
         [],
         timeOptions
-      )} - ${next1Hour.toLocaleTimeString([], timeOptions)}`,
+      )}-${next1Hour.toLocaleTimeString([], timeOptions)}`,
       label: `1 Jam Kedepan (${currTime.toLocaleTimeString(
         [],
         timeOptions
-      )} - ${next1Hour.toLocaleTimeString([], timeOptions)})`,
+      )}-${next1Hour.toLocaleTimeString([], timeOptions)})`,
     },
     {
       value: "00:00-23:59",

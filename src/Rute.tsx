@@ -1,12 +1,12 @@
 import { ThemeProvider } from "./components/theme-provider";
-import Home from "./pages/Home";
+import RutePage from "./pages/Rute";
 
-function App() {
+function Rute() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <Home />
+      <RutePage />
     </ThemeProvider>
   );
 }
 
-export default App;
+export default Rute;

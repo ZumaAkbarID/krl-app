@@ -127,7 +127,7 @@ export default function TrainScheduleCard({
                 {routeTrain.map((rt) => (
                   <li
                     className="mb-10 ms-6 last:mb-0"
-                    key={rt.train_id + rt.station_id}
+                    key={rt.train_id.toString() + rt.station_id.toString()}
                   >
                     <span
                       className="absolute flex items-center justify-center w-8 h-8 rounded-full -start-4 ring-4 ring-white dark:ring-gray-900 dark:bg-green-900"
