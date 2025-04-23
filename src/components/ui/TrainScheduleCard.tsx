@@ -162,8 +162,9 @@ export default function TrainScheduleCard({
                           </span>
                         </div>
                         {rt.transit.length > 0
-                          ? rt.transit.map((transitColor) => (
+                          ? rt.transit.map((transitColor, index) => (
                               <img
+                                key={"img-" + index}
                                 src={trainTransitIcon}
                                 className="w-8 h-8 rounded-full p-1 inline"
                                 style={{
