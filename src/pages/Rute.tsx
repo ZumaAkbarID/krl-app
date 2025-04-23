@@ -19,6 +19,12 @@ const Rute = () => {
     "timeFrom"
   )}&timeto=${searchParams.get("timeTo")}`;
 
+  const queryParamsTrain = `?stationid=${searchParams.get(
+    "staId"
+  )}&timefrom=${searchParams.get("timeFrom")}&timeto=${searchParams.get(
+    "timeTo"
+  )}`;
+
   useEffect(() => {
     if (
       !searchParams.get("staId") ||
@@ -34,7 +40,7 @@ const Rute = () => {
 
   const fetchSchedule = async () => {
     try {
-      const response = await api.get(`/schedule${queryParams}`);
+      const response = await api.get(`/schedule${queryParamsTrain}`);
       if (response.data.status === 200) {
         const scheduleData = response.data.data;
         if (Array.isArray(scheduleData) && scheduleData.length > 0) {
