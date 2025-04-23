@@ -53,7 +53,7 @@ const Rute = () => {
         setError("Gagal mengambil data. Coba lagi nanti.");
       }
     } catch (err) {
-      setError("Terjadi kesalahan ketika mengambil data.");
+      setError("Data tidak ditemukan.");
       console.error(err);
     } finally {
       setLoading(false);

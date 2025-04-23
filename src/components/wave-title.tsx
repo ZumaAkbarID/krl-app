@@ -39,7 +39,7 @@ const WaveTitle = (props: { loading: boolean; error: string | null }) => {
       {props.loading && (
         <p className="text-center font-bold">Tunggu sebentar...</p>
       )}
-      {props.error && <p>Error: {props.error}</p>}
+      {props.error && <p className="text-center">Error: {props.error}</p>}
     </>
   );
 };
